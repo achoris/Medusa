@@ -1089,10 +1089,6 @@ class PostProcessor(object):
         existing_file_status = self._compare_file_size(ep_obj.location)
 
         if not priority_download:
-            if existing_file_status == PostProcessor.EXISTS_SAME:
-                self.log(u'File exists and the new file has the same size, aborting post-processing')
-                return True
-
             if existing_file_status != PostProcessor.DOESNT_EXIST:
                 if self.is_proper and new_ep_quality == old_ep_quality:
                     self.log(u'New file is a PROPER, marking it safe to replace')
